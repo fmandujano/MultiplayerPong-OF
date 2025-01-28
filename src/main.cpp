@@ -1,6 +1,10 @@
 #include "ofMain.h"
 #include "ofApp.h"
 
+//NOTA: Recuerda deshabilitar vcpk en las opciones de cada proyecto 
+// Properties / Configuration Properties / vcpkg / use vcpkg NO
+//Un proyecto de OF incluye sus propias bibliotecas
+
 //========================================================================
 int main(int argc, char** argv )
 {

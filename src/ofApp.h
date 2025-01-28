@@ -1,6 +1,9 @@
 #pragma once
 
 #include "ofMain.h"
+#include <ofxGui.h>
+#include <ofxNetwork.h>
+#define BUFFER_SIZE 64
 
 class ofApp : public ofBaseApp{
 
@@ -29,4 +32,25 @@ class ofApp : public ofBaseApp{
 
 		//modo de juego
 		bool isServer = false;	
+
+		//menu de seleccion de modo
+		enum EAppState {
+			menu, client, server
+		} appState;
+
+		ofxPanel mainmenu;
+		ofxButton ButtonServer;
+		ofxButton ButtonClient;
+
+		//listeners de botones
+		void CreateServer();
+		void ConnectClient();
+
+		//cosas de networking o red
+		ofxUDPManager udpManager;
+		short int PORT = 6666; //max 65535
+		//buffer para guardar los mensajes de la red
+		char buffer[BUFFER_SIZE];
+		char bufferLast[BUFFER_SIZE];
+
 };
